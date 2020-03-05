@@ -132,9 +132,21 @@ char get_new_button(void)
 
 int main(void)
 {
-        init_hardware();
-        init_uart(); // initialization
-        printf("System Booted, built %s on %s\n", __TIME__, __DATE__);
+    init_hardware();    
+    init_uart(); // initialization
+    printf("System Booted hello world hey hey, built %s on %s\n", __TIME__, __DATE__);
+    
+    char pin[10];
+    int i = 0;
+    
+    while(1){        
+        char b = get_new_button();
+        
+        //Do something special with "#", for example clear partial entry
+        if(b == '#'){
+            i = 0;
+            continue;
+        }
         
         char pin[10];
         int i = 0;
