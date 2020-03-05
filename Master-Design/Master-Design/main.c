@@ -131,7 +131,7 @@ int main(void)
 {
     init_hardware();    
     init_uart(); // initialization
-    printf("System Booted hello world, built %s on %s\n", __TIME__, __DATE__);
+    printf("System Booted hello world hey hey, built %s on %s\n", __TIME__, __DATE__);
     
     char pin[10];
     int i = 0;
