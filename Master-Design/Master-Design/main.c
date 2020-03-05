@@ -41,6 +41,7 @@ void init_uart(void)
 	stdin = &mystdin;
 }
 
+
 void init_hardware(void)
 {
 	//Configure pins you need as OUTPUT. You'll have to look at where you plug
@@ -129,47 +130,32 @@ char get_new_button(void)
 	return b;
 }
 
-
-int main(void)
-{
-    init_hardware();    
-    init_uart(); // initialization
-    printf("System Booted hello world hey hey, built %s on %s\n", __TIME__, __DATE__);
-    
-    char pin[10];
-    int i = 0;
-    
-    while(1){        
-        char b = get_new_button();
-        
-        //Do something special with "#", for example clear partial entry
-        if(b == '#'){
-            i = 0;
-            continue;
-        }
-        
-        char pin[10];
-        int i = 0;
-        
-        while(1){
-	        char b = get_new_button();
-	        
-	        //Do something special with "#", for example clear partial entry
-	        if(b == '#'){
-		        i = 0;
-		        continue;
-	        }
-	        
-	        if(b){
-		        pin[i++] = b;
-	        }
-	        
-	        if(i >= 4){
-		        pin[4] = 0;
-		        printf("Entered PIN: %s\n", pin);
-		        i = 0;
-	        }
-	        
-        }
+int main_test (void){
+	init_hardware();
+	init_uart(); // initialization
+	printf("System Booted, built %s on %s\n", __TIME__, __DATE__);
+	
+	char pin[10];
+	int i = 0;
+	
+	while(1){
+		char b = get_new_button();
+		
+		//Do something special with "#", for example clear partial entry
+		if(b == '#'){
+			i = 0;
+			continue;
+		}
+		
+		if(b){
+			pin[i++] = b;
+		}
+		
+		if(i >= 4){
+			pin[4] = 0;
+			printf("Entered PIN: %s\n", pin);
+			i = 0;
+		}
+		
+	}
 }
-
