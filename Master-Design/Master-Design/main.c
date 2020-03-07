@@ -1,3 +1,4 @@
+
 /*
  * Master-Design.c
  *
@@ -186,3 +187,4 @@ scan function for new password code
 Curator code --> make new code array, inside the function we disable alarm.
 Silent alarm code --> make new code array, inside function, enable silent alarm.
 */
+
